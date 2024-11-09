@@ -180,6 +180,7 @@ while True:
 
         # If AI button clicked, make an AI move
         if aiButton.collidepoint(mouse) and not lost:
+            flags = ai.mines.copy()
             move = ai.make_safe_move()
             if move is None:
                 move = ai.make_random_move()
@@ -218,6 +219,6 @@ while True:
             nearby = game.nearby_mines(move)
             revealed.add(move)
             ai.add_knowledge(move, nearby)
-            flags = ai.mines
+            # flags = ai.mines
 
     pygame.display.flip()
